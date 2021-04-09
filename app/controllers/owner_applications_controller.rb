@@ -17,13 +17,14 @@ class OwnerApplicationsController < ApplicationController
   end
 
   def create
+    binding.pry
     @new_app = OwnerApplication.new(owner_application_params)
-    if new_app.save
+    if @new_app.save
       flash[:notice] = "Your application was submitted!"
       redirect_to "/owner_applications/#{@new_app.id}"
     else
       flash[:notice] = 'Please fill in all fields'
-      render :new
+      redirect_to "/owner_applications/new"
     end
   end
 

@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSPec.describe "New Application Page", type: :feature do
+RSpec.describe "New Application Page", type: :feature do
   describe "As a visitor" do
     describe "when I visit the pet index page" do
       it "shows a link to start an application" do
-        click_link("Start an Application")
+        click_link("New Application")
         expect(current_path).to eq("/owner_applications/new")
       end
     end
@@ -32,18 +32,17 @@ RSPec.describe "New Application Page", type: :feature do
         click_button 'Submit Application'
 
         expect(current_page).to eq "applications/show"
-
-    end
-
+      end
 
 
-    it "Shows an error if something isnt filled out and I click submit" do
-      visit "/owner_applications/new"
-      fill_in 'Name:' with: 'Wyatt'
-      click_button 'Submit'
-      expect(page).to have_content('Please fill in all fields')
-      expect(current_path).to eq('/owner_applications/new')
-      # expect(page).to have_content('Wyatt')
+
+      it "Shows an error if something isnt filled out and I click submit" do
+        visit "/owner_applications/new"
+        fill_in 'Name:', with: 'Wyatt'
+        click_button 'Submit'
+        expect(page).to have_content('Please fill in all fields')
+        expect(current_path).to eq('/owner_applications/new')
+      end
     end
   end
 end

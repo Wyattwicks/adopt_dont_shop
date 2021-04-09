@@ -2,3 +2,4 @@
 <%= @applications.each do |application| %>
   <%= link_to "#{application.name}", "/owner_applications/#{application.id}" %>
 <% end %>
+<%= link_to "New Application", "/owner_applications/new" %>

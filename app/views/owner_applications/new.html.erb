@@ -1,21 +1,18 @@
 <h1> New Owner Application Form </h1>
 
-  <%= label_tag 'Name:' %>
+<%= form_with url: "/owner_applications/new", method: :post, local: true do |f| %>
+
+  <%= label_tag :name, 'Name' %>
   <%= text_field_tag :name %><br>
-  <%= label_tag 'Street Address' %>
+  <%= label_tag :street_address, 'Street Address' %>
   <%= text_field_tag :street_address %><br>
-  <%= label_tag 'City' %>
+  <%= label_tag :city, 'City' %>
   <%= text_field_tag :city %><br>
-  <%= label_tag 'State' %>
+  <%= label_tag :state, 'State' %>
   <%= text_field_tag :state %><br>
-  <%= label_tag 'Zip Code:' %>
+
+  <%= label_tag :zip_code, 'Zip Code' %>
   <%= text_field_tag :zip_code %><br>
-  <h3> Pets: </h3>
-
-
 
   <%= submit_tag 'Submit Application' %>
-
-<% flash.each do |type, message| %>
-  <p><%= message %></p>
-<% end%>
+<% end %>
